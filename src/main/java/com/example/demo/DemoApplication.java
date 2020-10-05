@@ -9,30 +9,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.naming.ldap.Control;
 import java.util.List;
 
 @SpringBootApplication
-public class DemoApplication implements CommandLineRunner{
-	@Autowired
-	EmployeeService employeeService;
-	@Autowired
-	EmployeeRepository employeeRepository;
+@EnableAutoConfiguration
+public class DemoApplication {
 
-	private static final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
 	public static void main(String[] args) {
-		logger.info("this is a info message");
-		logger.warn("this is a warn message");
-		logger.error("this is a error message");
 		SpringApplication.run(DemoApplication.class, args);
-
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		//List<Employee> employees = employeeRepository.findByFirstNameStartingWith("he");
-		//System.out.println(employees.size());
 	}
 }
